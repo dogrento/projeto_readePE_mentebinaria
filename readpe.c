@@ -60,5 +60,7 @@ int main(int argc, char *argv[]){
 	printf("MZ HEADER: %x\n", pe.hdr_dos->e_magic);
 	printf("COFF header offset: %x\n", pe.hdr_dos->e_lfanew);
 
+	petest_deinit(&pe);
+
 	return 0;
 }

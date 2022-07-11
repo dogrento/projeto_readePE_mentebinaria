@@ -1,5 +1,6 @@
 #include "petest.h"
 
+
 /*============================================================================*/
 /** Verifica se é um executável PE 
  *
@@ -39,9 +40,4 @@ bool petest_init(PE_FILE *pe){
 	fclose(f);
 
 	return true;
-}
-
-void petest_deinit(PE_FILE *pe){
-	if(pe->hdr_dos)
-		free(pe->hdr_dos);
 }

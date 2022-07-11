@@ -51,14 +51,7 @@ int main(int argc, char *argv[]){
 	puts(pe.filepath);
 
 	petest_init(&pe);
-	if(petest_ispe(&pe))
-		printf("É um executável PE... continuando...\n");
-	else
-		fatal("Não é um executável PE\n");
-
-	printf("FILE:      %s\n", pe.filepath);
-	printf("MZ HEADER: %x\n", pe.hdr_dos->e_magic);
-	printf("COFF header offset: %x\n", pe.hdr_dos->e_lfanew);
+	printf("%x\n", pe.hdr_dos->e_magic);
 
 	return 0;
 }

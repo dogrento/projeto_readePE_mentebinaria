@@ -24,15 +24,16 @@ typedef struct{
 	uint16_t e_oemid;
 	uint16_t e_oeminfo;
 	uint16_t e_res2[10];
-	uint32_t e_lfanew; // sizeof(IMAGE_DOS_HEADER) + sizeof MS-DOS stub
+	uint16_t e_lfanew; // sizeof(IMAGE_DOS_HEADER) + sizeof MS-DOS stub
 } IMAGE_DOS_HEADER;
 
 #pragma pack(pop)
+
+bool petest_ispe(const unsigned char *b);
 
 typedef struct{
         char* filepath;
         IMAGE_DOS_HEADER* hdr_dos;
 } PE_FILE;
 
-bool petest_ispe(PE_FILE* pe);
-bool petest_init(PE_FILE* pe);
+bool petest_init(PE_FILE *pe);

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
+
+#include "lib/petest.h"
 
 // declaração das funções
 void usage(void);
@@ -34,9 +35,6 @@ void fatal(char *msg){
 	exit (1);
 }
 
-bool ispe(const unsigned char *b){
-	return(b[0] != 'M' && b[1] != 'Z'); // 'M' == 0x4d 'Z' == 0x5a
-}
 
 int main(int argc, char *argv[]){
 	// declaração da var responsável em abrir arquivo. 
@@ -58,7 +56,7 @@ int main(int argc, char *argv[]){
 	if (fread(buffer, 32, 1, fh)!= 1)
 		fatal("Não foi possível ler os 32 bytes do arquivo.");
 	
-	if(!ispe(buffer))
+	if(!petest_ispe(buffer))
 		fatal("arquivo não é um executável PE.");
 
 
